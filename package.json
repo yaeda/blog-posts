@@ -1,0 +1,13 @@
+{
+  "name": "blog-posts",
+  "version": "1.0.0",
+  "repository": "https://github.com/yaeda/blog-posts",
+  "author": "Takeshi Yaeda <t.yaeda@gmail.com>",
+  "license": "(MIT OR CC-BY-SA-4.0 OR CC-BY-ND-4.0)",
+  "private": true,
+  "scripts": {
+    "new": "touch posts/`date '+%Y-%m-%d'`.md",
+    "deploy:new": "git commit -m 'add new posts' && git push",
+    "deploy:update": "git commit -am 'update posts' && git push"
+  }
+}
