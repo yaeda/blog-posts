@@ -16,7 +16,7 @@ date: 2020-10-06 22:40
 
 以下の yml コードが 「main ブランチの posts ディレクトリの Markdown ファイルに変更があったら yaeda/yaeda.github.com に`deploy`というイベントを投げる」という設定．GitHub Actions の [repository_dispatch](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#repository_dispatch) という機能を使っているが， [workflow_dispatch](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows#workflow_dispatch) でも同様のことができると思う．どちらも GitHub API 経由で workflow をトリガーする機能で，これを別のリポジトリの workflow の中で利用する．
 
-```yml title="blog-posts/.github/workflows/dispatch.yml"
+```yml:blog-posts/.github/workflows/dispatch.yml
 name: dispatch
 
 on:
@@ -44,7 +44,7 @@ API を使う部分は [peter\-evans/repository\-dispatch](https://github.com/pe
 
 こちらでは `deploy` というイベントを受け取って Build & Deploy を行う．以下の例では「 main ブランチへの変更 もしくは `deploy` イベント」をトリガーとして publish ジョブが走るようになっている．ジョブの中で yaeda/yaeda.github.com と yaeda/blog-posts の２つのリポジトリを checkout してきて Build & Deploy を行っている．完全なコードはこちら（[yaeda\.github\.com/deploy\.yml at main](https://github.com/yaeda/yaeda.github.com/blob/main/.github/workflows/deploy.yml)）．
 
-```yml title="yaeda.github.com/.github/workflows/deploy.yml"
+```yml:yaeda.github.com/.github/workflows/deploy.yml
 name: deploy
 
 on:
