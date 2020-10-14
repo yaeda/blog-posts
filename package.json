@@ -7,8 +7,8 @@
   "private": true,
   "scripts": {
     "new": "touch posts/`date '+%Y-%m-%d'`.md",
-    "deploy:new": "git commit -m 'add new posts' && git push",
-    "deploy:update": "git commit -am 'update posts' && git push",
+    "deploy:new": "git commit -m 'add new posts'",
+    "deploy:update": "git add -u posts/*.md images/* && git commit -m 'update posts'",
     "image:resize": "convert -resize 1920x",
     "image:remove-gps": "exiftool '-gps*='"
   }
